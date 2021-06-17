@@ -50,4 +50,7 @@ detailed installation instructions.
 * cd ..
 * helm install vault hashicorp/vault -f ./vault-helm/values-test.yaml -n vault --kubeconfig ./doc/kube_config
 
-*helm upgrade vault hashicorp/vault -f ./vault-helm/values-test.yaml -n vault --kubeconfig ./doc/kube_config
+* helm upgrade vault hashicorp/vault -f ./vault-helm/values-test.yaml -n vault --kubeconfig ./doc/kube_config
+* kubectl exec -it vault-1 vault operator raft join http://vault-0.vault-internal:8200 -n vault --kubeconfig=../doc/kube_config
+
+* kubectl exec -it vault-2 vault operator raft join http://vault-0.vault-internal:8200 -n vault --kubeconfig=../doc/kube_config
